@@ -81,6 +81,8 @@ The led's are connected in series. If a led is broken or has bad solder connecti
 Solder the SK6812 Mini-E led's (with legs), on the **back side** of the board.  
 **Pay attention to orientation of the led's.**
 
+We solder LEDs using the same approach as for the diodes.In that case: tin one pad, put the LED on, reflow, solder the other three pins.
+
 ![](img/sk6812-mini-e-led-1.jpg)
 
 Correct orientation from the front view.
@@ -95,30 +97,10 @@ It is necessary to solder all led's, even if you use the rotary encoder.
 
 ![](img/sk6812-mini-e-led-3.jpg)
 
-The led's are connected in series. If a led is broken or has bad solder connections, the following led's will not light up.
-
-## Solder the sockets
-The sockets are mounted on the **back side**, the same side as the diodes.
-
-Much like the approach used for the diodes above, begin by pre-soldering one side of the socket pad, place the component, and hold it in place with tweezers. (The sockets can also be held in place by hand, but please take extra care not to burn yourself.)
-The image shows a soldered MX socket.
-
-![Kailh hot swap sockets]()
-
-## Solder the rotary encoder
-
-Soldering the rotary encoder is as simple as any other component. Put the encoder from the front into the holes on the PCB, just below the screen, and solder it from the back.
-
-**Tip** Depending on your case you should first try and bend the rotary encoder legs a bit before soldering it in. The legs can prevent your case from closing completly, as it will rest on the protruding legs. Bending the pins so that they are flush with the encoder helps here. 
-
-## Attach the OLED display
-On the **front side** of the board, apply enough solder to bridge the four jumper terminals in the Pro Micro section.
-
-![](img/oled-jumper-pins-1.jpg)
-
-Attach the connector for the OLED on front side (opposite side of diodes). Be careful to avoid adding a lot of solder, as it is easy for solder to flow into the connector.
-![]()
-
+For the LEDs it's important to keep the heating as short as possible. Try to not touch the LED itself with the iron but rather only the solder that's supposed to connect to the metal pin. Use flux. 
+The led's are connected in series. If a led is broken or has bad solder connections, the following led's will either not light up at all or will light up in a different color than the default (red).
+Doublecheck the last LED that lights up properly and the first that doesn't.
+On the LEDs with legs it's easily possible to get a loose connection. 
 
 ## Soldering the TRRS jack and reset switch
 The TRRS jack and the reset switch are mounted on the **front side** (opposite side of diodes).
@@ -126,10 +108,21 @@ Attach the parts and fix them temporarily with masking tape. Turn over the board
 
 ![TRRS jack and reset button](img/trrs-jack-reset-button-1.jpg)
 
+**be careful** don't be careless doing this part. TRRS jacks are parts you can indeed mess up. I promise. 
+
+## Attach the OLED display
+On the **front side** of the board, apply enough solder to bridge the four jumper terminals in the Pro Micro section.
+
+![](img/oled-jumper-pins-1.jpg)
+
+Attach the connector for the OLED on front side (opposite side of diodes). Be careful to avoid adding a lot of solder, as it is easy for solder to flow into the connector.
 
 ## Install Pro Micro
+
+**Before installing the Pro Micro, no matter which (can also happen on the elite c), check whether they are working by plugging them in and flashing the default keymap.** 
+
 The pin header enclosed in the bag of Pro Micro can be used, but i recommend to use the Mill-Max socket headers.
-With the Mill-Max header it's easier to replace the Pr Micro, if it's broken.
+With the Mill-Max header it's easier to replace the Pro Micro, if it's broken. (Especially the Pro Micros will break at some point)
 
 ![Standard header/ Mill-Max socket header](img/mill-max-12-single-row-socket-1.jpg)
 
@@ -149,9 +142,47 @@ Place the Pro Micro **(Micro-USB socket facing down)**.
 
 ![](img/mill-max-12-single-row-socket-3.jpg)
 
-Solder the pins and shorten the pins with a diagonal plier.
+Solder the pins and shorten the pins with diagonal pliers.
 
 ![](img/mill-max-12-single-row-socket-4.jpg)
+
+For other ways to mount your Pro Micros, look at [the crkbd build guide.](https://nicedoc.io/foostan/crkbd/blob/master/corne-classic/doc/buildguide_en.md#using-pin-sockets)
+
+Before you ask: The Procedure is absolutely identical for the Elite-C.
+
+## Some tipps for installing the OLED on the socket
+
+- if you soldered the socket for the OLED, remove the black plastic thingy that's part of the header installed in the OLED. The you'll be able to shorten it's legs with your pliers and put them into the socket, resulting into a way more low profile OLED.  
+- If you do not have sockets installed, you can add height to the oled, by removing pins out of headers, and putting the empty black plastics part onto the headers of the OLED.
+
+> Add image here: "Soldered 4pin socket for Oled"
+
+## Solder the rotary encoder
+
+Soldering the rotary encoder is as simple as any other component. Put the encoder from the front into the holes on the PCB, just below the screen, and solder it from the back.
+
+**Tip** Depending on your case you should first try and bend the rotary encoder legs a bit before soldering it in. The legs can prevent your case from closing completly, as it will rest on the protruding legs. Bending the pins so that they are flush with the encoder helps here. (you can also just clip them off)
+
+**For your information.** The top **two** legs serve as a simple connection that is closed by the rotary encoders tactile press. It's connected to the pins a switch would be connected to, if there were on in the place of the rotary encoder. Therefore, in your firmware the rotary encoder will serve, inter alia, as a switch in the matrix.
+The lower three pins do the actual rotary-encoding part
+
+## You have reached a checkpoint 
+
+Plug your keyboard, look what happens, solve problems, be happy if there are none. (if you followed all the steps your pro micros should have firmware at this point)
+By now you can also checked whether all switches will be able to work. In order to do so, short the pads on which the kailh sockets will be installed (next step) with tweezers. 
+
+> Add image here: "Test switches with tweezer"
+
+## Solder the sockets
+The sockets are mounted on the **back side**, the same side as the diodes.
+
+Much like the approach used for the diodes above, begin by pre-soldering one side of the socket pad, place the component, and hold it in place with tweezers. (The sockets can also be held in place by hand, but please take extra care not to burn yourself.)
+The image shows a soldered MX socket.
+
+The sockets take **way** more solder than the other components like the LEDs and the diodes. But don't exaggerate... 
+
+> Add image here: "Kailh hot swap sockets"
+
 
 
 ## Attach the spacer
@@ -175,6 +206,7 @@ Insert the switch into the board for alignment, and line up the components.
 
 After confirming that there are no bends in the switch pins, you can attach it firmly by starting from the middle row and working outward.
 Be careful: KailhBOX switches and Choc switches require some power for installation.
+Always be careful to put the switches in nice and straight, otherwise you'll bend the pins and scratch the PCB.
 After mounting the plate, push the switches again to make sure that installation is complete.
 ![2019-01-26 15 10 06](https://user-images.githubusercontent.com/6285554/51967840-b66f3c80-24b3-11e9-8f50-6d8d31fe85e5.jpg)
 
@@ -196,6 +228,7 @@ The [QMK Toolbox](https://github.com/qmk/qmk_toolbox/releases) can be used to wr
  
 Clone/download the Lily58L firmware branch and execute the following in the `qmk_firmware` directory to write the default Lily58L keymap
 
+	git checkout Lily58L
     qmk compile -kb lily58l -km default   
 
 
@@ -216,6 +249,10 @@ The build is completed by attaching the four rubber feet to the back of each boa
 ![2019-01-26 15 24 52](https://user-images.githubusercontent.com/6285554/51967992-24b3ff00-24b4-11e9-8cd3-1e679094682f.jpg)
 ![unadjustednonraw_thumb_2ddc](https://user-images.githubusercontent.com/6285554/53640050-6203dc00-3c6e-11e9-9434-5591ed3e414f.jpg)
 
+
+## Congratulations(?)
+If everything works: You have built your lily58L. Have fun!
+If something doesn't work:
 
 ## When in trouble
 ### Q. One or more rows/columns of key switches do not respond
@@ -251,3 +288,23 @@ After changing the key map,
     sudo make lily58:(any folder name):avrdude
 
 If you get an error, please double-check the board, connection and command.
+
+
+### Handedness by EEPROM
+I'll just add this as a tipp, cause it's fucking cool. 
+You can tell each side of the Keyboard, whether it's left or right, by writing it into it's eeprom. 
+In order to do so, first put 
+
+	#define EE_HANDS
+
+into your config.h. 
+Then flash the keymap with 
+	
+	make lily58l:(yourkeymap):avrdude-split-left 
+and
+
+	make lily58l:(yourkeymap):avrdude-split-right
+respectively.
+If you're using DFU bootloader (in case of the elite c), replace the 'avrdude' with 'dfu'
+
+From then on, your keyboard will know, which side they are, no matter which side you plug in. You won't have to use the flags again when flashing an update of your keymap.
